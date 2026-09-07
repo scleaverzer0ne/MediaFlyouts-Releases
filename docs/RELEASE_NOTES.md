@@ -1,5 +1,43 @@
 # MediaFlyouts Release Notes
 
+## Version 1.2.0 — Peripheral battery and dashboard improvements (September 2026)
+
+Version 1.2.0 adds a complete wireless peripheral battery experience and
+improves the dashboard, media integration, fullscreen behavior and release
+packaging.
+
+### Peripheral battery monitoring
+- Reads battery levels from Bluetooth Classic, Bluetooth LE, Google Fast Pair,
+  DualSense / DualSense Edge, Razer and Logitech wireless devices.
+- Shows selected devices in a taskbar widget with battery rings, charging state
+  and per-component details for earbuds and other multi-battery devices.
+- Announces connect, disconnect, charging and low-battery events in a dedicated
+  peripheral flyout, with event toggles, alert debouncing and optional tray
+  notifications.
+- Adds device classification, grouped connection types, faster change detection
+  and a dedicated peripheral settings page.
+
+### Dashboard and visual polish
+- Adds a collapsible, searchable dashboard sidebar with refreshed icons and page
+  headers.
+- Adds an option to apply album-art accent colors across the whole app.
+- Keeps flyouts above the taskbar and improves widget behavior over the Start
+  menu.
+
+### Reliability and packaging
+- Fixes dashboard startup, onboarding visibility and flyout/widget recovery
+  after fullscreen apps close.
+- Matches media sessions by app ID and refreshes media state more reliably.
+- Gates audio capture while the taskbar widget is hidden.
+- Adds optional file logging, MSIX startup-task support and a unified
+  `mediaflyouts.ps1` build/test/run workflow.
+- Improves MSIX signing so releases can use a persistent certificate.
+
+### Downloads
+See the [Releases page](https://github.com/scleaverzer0ne/MediaFlyouts/releases):
+`MediaFlyouts-1.2.0-setup.exe`, `MediaFlyouts-1.2.0.msix` (+ `MediaFlyouts.cer`),
+`MediaFlyouts-1.2.0-win64.zip`, and `MediaFlyouts-1.2.0-src.zip`.
+
 ## Version 1.1.0 — First-run polish (August 2026)
 
 A small follow-up to 1.0.0 that cleans up the first-run experience and adjusts

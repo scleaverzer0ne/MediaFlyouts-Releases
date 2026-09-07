@@ -5,7 +5,7 @@ QML. MediaFlyouts replaces the dated Windows overlays with clean, Fluent-styled
 flyouts, a per-app volume mixer, a taskbar now-playing widget and an audio
 visualizer.
 
-> **Status:** stable — `v1.1.0`. Windows 10/11 (x64).
+> **Status:** stable — `v1.2.0`. Windows 10/11 (x64).
 
 ## Highlights
 
@@ -17,6 +17,8 @@ visualizer.
 - **Now Playing / Up next** flyout with a card or compact-pill style.
 - **Taskbar widget** with a now-playing readout and a multi-style **audio
   visualizer** (bars, radial, waveform, beat-driven particles).
+- **Peripheral battery monitoring** with Bluetooth, Fast Pair, DualSense, Razer
+  and Logitech support, a battery widget and event flyouts.
 - **Theming** — light / dark / system, dark title bars, and a selectable accent
   (default, match-system, or custom, or tinted from album art).
 - **App filtering**, a searchable **settings dashboard**, settings
