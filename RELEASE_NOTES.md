@@ -1,5 +1,37 @@
 # MediaFlyouts Release Notes
 
+## Version 1.1.0 — First-run polish (August 2026)
+
+A small follow-up to 1.0.0 that cleans up the first-run experience and adjusts
+two defaults. Existing installs keep their current settings.
+
+### 🐣 First-run fixes
+- Flyouts and the taskbar widget stayed hidden until the onboarding wizard is
+  finished — previously they could pop up over the wizard while you were still
+  choosing your settings.
+- The native Windows volume OSD is no longer suppressed during onboarding, so
+  volume changes still show feedback before our own flyout takes over.
+- On first run the taskbar widget now docks to the taskbar edge the shell leaves
+  free: **left** when your taskbar is center-aligned, **right** when it is
+  left-aligned. Previously it always started on the left, which could sit under
+  a center-aligned taskbar's buttons. If you have already positioned the widget,
+  your choice is kept.
+
+### ⚙️ Changed defaults
+- The per-app mixer inside the volume flyout now starts **disabled**. Turn it
+  back on from the dashboard under Volume flyout.
+
+### Known limitations
+- **English only** — no localization yet.
+- **No window acrylic/mica backdrop** — flyouts use solid, theme-matched surfaces.
+- The MSIX is signed with a self-signed certificate; installing it requires
+  trusting that certificate (see the [Installation Guide](user/installation.md)).
+
+### Downloads
+See the [Releases page](https://github.com/scleaverzer0ne/MediaFlyouts/releases):
+`MediaFlyouts-1.1.0-setup.exe`, `MediaFlyouts-1.1.0.msix` (+ `MediaFlyouts.cer`),
+`MediaFlyouts-1.1.0-win64.zip`, and `MediaFlyouts-1.1.0-src.zip`.
+
 ## Version 1.0.0 — Initial Release (August 2026)
 
 The first public release of MediaFlyouts — a complete media, volume and

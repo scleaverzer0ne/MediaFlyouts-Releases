@@ -5,14 +5,14 @@ QML. MediaFlyouts replaces the dated Windows overlays with clean, Fluent-styled
 flyouts, a per-app volume mixer, a taskbar now-playing widget and an audio
 visualizer.
 
-> **Status:** first stable release — `v1.0.0`. Windows 10/11 (x64).
+> **Status:** stable — `v1.1.0`. Windows 10/11 (x64).
 
 ## Highlights
 
 - **Media flyout** on media/volume keys with album art, transport controls and a
   draggable seekbar.
 - **Volume flyout** that replaces the native OSD, follows the default output
-  device, and expands into a **per-app mixer** with real app icons.
+  device, and expands into an optional **per-app mixer** with real app icons.
 - **Lock-keys flyout** for Caps / Num / Scroll / Insert.
 - **Now Playing / Up next** flyout with a card or compact-pill style.
 - **Taskbar widget** with a now-playing readout and a multi-style **audio
