@@ -1,0 +1,76 @@
+# MediaFlyouts Release Notes
+
+## Version 1.0.0 — Initial Release (August 2026)
+
+The first public release of MediaFlyouts — a complete media, volume and
+lock-key overlay for Windows, written from scratch in Qt 6 / C++ / QML.
+
+### 🎵 Media flyout
+- Appears on media-key / volume-key presses while something is playing, driven
+  by the System Media Transport Controls (SMTC).
+- Album art (rounded), title, artist and an optional media-player name.
+- Transport controls: previous, play/pause, next.
+- Draggable, interactive seekbar with elapsed / duration (with an optional
+  interactive sub-mode; can be turned off).
+- Repeat and shuffle controls when the session supports them.
+- Compact layout, centered title/artist, and an "always display" pinned mode
+  with a close button that auto-hides when unpinned.
+
+### 🔊 Volume flyout & per-app mixer
+- Replaces and suppresses the native Windows volume OSD.
+- Master volume slider with mute and a configurable duration.
+- Follows the default output device and re-binds when it changes.
+- Expandable, responsive per-app mixer inside the flyout, with real app icons.
+- A standalone Volume Mixer window with the same per-process controls.
+
+### 🔒 Lock-keys flyout
+- Caps / Num / Scroll / Insert indicators with per-key toggles, a configurable
+  duration and a bold-UI option.
+
+### ⏭️ Now Playing / Up next
+- Fires on track change; selectable "now playing card" or compact "Up next" pill
+  style; sizes to its track text.
+
+### 📊 Taskbar widget & visualizer
+- Now-playing taskbar widget: left/right docking, per-monitor placement,
+  adjustable offset, center alignment, pause overlay and scrolling titles.
+- Scroll / swipe between multiple media sources; hidden over fullscreen apps and
+  kept out of screen captures; optional integrated controls.
+- Audio visualizer from WASAPI loopback + FFT, with **Bars**, **Radial**,
+  **Waveform** and **Particles** (beat-driven) styles.
+
+### 🎨 Theming, placement & animation
+- Light / dark / system theme with dark title bars.
+- Selectable accent color (default / match-system / custom) and an optional
+  accent tinted from album art.
+- Simultaneously visible flyouts stack and re-flow smoothly.
+- Six on-screen positions plus "above the taskbar widget", monitor selection and
+  on-screen clamping; configurable animation speed and easing.
+
+### 🧰 App filtering, dashboard & system
+- Blacklist / whitelist app filtering.
+- Searchable settings dashboard with scrollable pages and settings
+  backup / restore.
+- Tray icon with a dark Fluent context menu; hide-tray and left-click options.
+- Single-instance handling that surfaces the dashboard on relaunch.
+- First-run onboarding wizard.
+- Update checker against the GitHub releases API with optional auto-check.
+- Launch on startup and fullscreen-app suppression.
+
+### 🏗️ Engineering
+- Cross-platform domain core (settings, track info, FFT, positioning) with
+  GoogleTest + Qt Test suites (7 CTest targets).
+- GitHub Actions CI building and testing both debug and release.
+- Release pipeline producing an installer, an MSIX, a portable ZIP and a source
+  ZIP.
+
+### Known limitations
+- **English only** — no localization yet.
+- **No window acrylic/mica backdrop** — flyouts use solid, theme-matched surfaces.
+- The MSIX is signed with a self-signed certificate; installing it requires
+  trusting that certificate (see the [Installation Guide](user/installation.md)).
+
+### Downloads
+See the [Releases page](https://github.com/scleaverzer0ne/MediaFlyouts/releases):
+`MediaFlyouts-1.0.0-setup.exe`, `MediaFlyouts-1.0.0.msix` (+ `MediaFlyouts.cer`),
+`MediaFlyouts-1.0.0-win64.zip`, and `MediaFlyouts-1.0.0-src.zip`.
