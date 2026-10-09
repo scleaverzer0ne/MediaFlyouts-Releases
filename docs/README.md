@@ -1,12 +1,13 @@
 # MediaFlyouts Documentation
 
-Everything you need to use, build, and extend MediaFlyouts — a Windows media,
-volume and lock-key overlay built with Qt 6 / C++ / QML.
+Everything you need to use, build, and extend MediaFlyouts — Fluent-styled
+media, volume, lock-key, now-playing and peripheral-battery flyouts plus
+taskbar widgets for Windows, built with Qt 6 / C++ / QML.
 
 ## 📚 Documentation structure
 
 ### For users
-- **[Installation Guide](user/installation.md)** — install the app (installer, MSIX, portable)
+- **[Installation Guide](user/installation.md)** — install the app (installer, Microsoft Store, portable)
 - **[User Guide](user/user-guide.md)** — using the flyouts, dashboard, taskbar widget and visualizer
 - **[FAQ](user/faq.md)** — troubleshooting and common questions
 
@@ -22,10 +23,10 @@ volume and lock-key overlay built with Qt 6 / C++ / QML.
 - **[Controllers API](api/controllers.md)** — app + Windows integration classes
 - **[Model API](api/models.md)** — cross-platform domain logic
 - **[QML UI](api/qml-ui.md)** — the QML views and how they bind to C++
-- **[Packaging](../packaging/README.md)** — installer / MSIX / signing inputs
+- **[Packaging](../packaging/README.md)** — installer / Store MSIX / release inputs
 
 ### Releases
-- **[Release Notes](RELEASE_NOTES.md)** — version history (v1.4.0)
+- **[Release Notes](RELEASE_NOTES.md)** — version history (v1.4.1)
 - **[Changelog](../CHANGELOG.md)** — concise change log
 
 ## 🚀 Quick start

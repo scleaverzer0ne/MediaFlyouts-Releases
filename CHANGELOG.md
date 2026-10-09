@@ -3,6 +3,28 @@
 All notable changes to MediaFlyouts are documented here. This project follows
 [Semantic Versioning](https://semver.org/).
 
+## [1.4.1] — 2026-10-09
+
+Packaging-only release that moves the MSIX to the Microsoft Store. No
+application changes.
+
+### Changed
+
+- The installable MSIX now ships only through the Microsoft Store, which signs
+  it with Microsoft's certificate. `MediaFlyouts.cer` is gone, so there is no
+  certificate to trust. The `.msix` on the GitHub release is the unsigned
+  package submitted to the Store and is not installable directly. The
+  installer and portable ZIP are unchanged.
+- The release workflow builds the unsigned Store package and attaches it to
+  the GitHub release; it is uploaded to Partner Center by hand.
+
+### Fixed
+
+- The MSIX version-injection step rewrote `TargetDeviceFamily MinVersion` as
+  well as the package version, so the staged manifest claimed a minimum
+  Windows build the Store rejects. Only the `Identity Version` is stamped now.
+- `PublisherDisplayName` now matches the Partner Center publisher name.
+
 ## [1.4.0] — 2026-10-09
 
 Adds a stacked widget layout and a "Pause all" media control, fixes taskbar
@@ -170,7 +192,7 @@ written from scratch in Qt 6 / C++ / QML.
 - Caps / Num / Scroll / Insert indicators with per-key toggles, a configurable
   duration and a bold-UI option.
 
-### Now Playing / Now Playing
+### Now Playing
 
 - Fires on track change; selectable "now playing card" or compact "Now Playing"
   pill style; sizes to its track text; configurable duration.
@@ -219,3 +241,4 @@ written from scratch in Qt 6 / C++ / QML.
 [1.2.0]: https://github.com/scleaverzer0ne/MediaFlyouts/releases/tag/v1.2.0
 [1.3.0]: https://github.com/scleaverzer0ne/MediaFlyouts-Releases/releases/tag/v1.3.0
 [1.4.0]: https://github.com/scleaverzer0ne/MediaFlyouts-Releases/releases/tag/v1.4.0
+[1.4.1]: https://github.com/scleaverzer0ne/MediaFlyouts-Releases/releases/tag/v1.4.1

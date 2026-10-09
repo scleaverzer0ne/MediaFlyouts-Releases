@@ -1,5 +1,26 @@
 # MediaFlyouts Release Notes
 
+## Version 1.4.1 — Microsoft Store release (October 2026)
+
+Version 1.4.1 is a packaging-only release. The app is identical to 1.4.0.
+
+### Packaging
+
+- The installable MSIX now ships through the **Microsoft Store**, signed by
+  Microsoft, so no certificate has to be trusted. The `.msix` on the GitHub
+  release is the unsigned package submitted to the Store, published so the
+  Store build can be matched to a release; it does not install directly.
+- Fixes the MSIX manifest so the Store accepts it: the version stamp no longer
+  overwrites the minimum Windows build, and the display names match the
+  Partner Center account and reserved app name.
+
+### Downloads
+
+See the [Releases page](https://github.com/scleaverzer0ne/MediaFlyouts-Releases/releases):
+`MediaFlyouts-1.4.1-setup.exe`, `MediaFlyouts-1.4.1-win64.zip`,
+`MediaFlyouts-1.4.1-src.zip`, and the unsigned Store package
+`MediaFlyouts-1.4.1.msix`. Install the signed MSIX from the Microsoft Store.
+
 ## Version 1.4.0 — Widget stack, Pause all and multi-monitor fixes (October 2026)
 
 Version 1.4.0 adds a stacked taskbar widget layout and a "Pause all" media
@@ -187,7 +208,7 @@ lock-key overlay for Windows, written from scratch in Qt 6 / C++ / QML.
 - Caps / Num / Scroll / Insert indicators with per-key toggles, a configurable
   duration and a bold-UI option.
 
-### ⏭️ Now Playing / Now Playing
+### ⏭️ Now Playing
 
 - Fires on track change; selectable "now playing card" or compact "Now Playing" pill
   style; sizes to its track text.
