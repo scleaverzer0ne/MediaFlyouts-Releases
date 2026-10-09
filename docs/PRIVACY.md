@@ -4,11 +4,14 @@
 **Applies to:** MediaFlyouts / "Media Flyouts" for Windows, all distribution
 channels (Microsoft Store, installer, portable ZIP, source build).
 
-MediaFlyouts is a free, open-source desktop utility published by
-ScleaverZer0ne. This policy explains what information the app handles and what
-it does with it. The short version: **MediaFlyouts collects no personal data,
-contains no telemetry, analytics or advertising, and sends nothing about you to
-the developer.**
+MediaFlyouts is an open-source desktop utility published by ScleaverZer0ne.
+The source code is available under the MIT License; the Microsoft Store
+edition is a paid listing. Paying for it does not change anything in this
+policy: the app has no account, no licence server and no in-app purchases.
+This policy explains what information the app handles and what it does with
+it. The short version: **MediaFlyouts collects no personal data, contains no
+telemetry, analytics or advertising, and sends nothing about you to the
+developer.**
 
 ## 1. Data the app processes locally
 
@@ -31,9 +34,31 @@ processed in memory on your device and is never transmitted anywhere.
   your user profile. "Open Config Folder" in the tray menu shows where. You can
   export, import or delete this file at any time; uninstalling the Store or
   installer version removes it.
-- **Logs** — release builds write no log files. Developer (debug) builds may
-  write a diagnostic log under the app's local data folder; it contains app
-  events, never media content, audio or keystrokes.
+- **Logs** — the app writes a diagnostic log under its local data folder
+  (`%LOCALAPPDATA%\MediaFlyouts\MediaFlyouts\logs\`). It records app events:
+  start and exit, which subsystems came up or failed (audio, media session,
+  keyboard hook, Bluetooth, HID), display layout, update checks, and warnings
+  raised by the app or by Qt. It can include peripheral device names and model
+  identifiers (for example "MX Master 4") because they are needed to diagnose
+  battery problems. It never contains media titles, album art, audio,
+  keystrokes, volume levels you set, or any account information. Logs rotate
+  at 2 MB and at most three files are kept (about 6 MB total). Repeated
+  identical lines are collapsed. Delete the folder at any time; the app
+  recreates an empty log on next start. Developer builds log at a more
+  verbose level.
+- **Error reports** — only when you click **Create error report** on the About
+  page (or **Report a Bug** in the tray menu, which opens that page). The app
+  writes a report under `%LOCALAPPDATA%\MediaFlyouts\MediaFlyouts\reports\`
+  containing: `report.txt` (app version, Windows version and build, CPU
+  architecture, Qt version, locale, monitor layout, which subsystems are
+  unavailable, the path of your settings file), `settings.ini` (a copy of your
+  settings, which includes custom peripheral names and your app filter list),
+  and `logs/` (the log files above). It is zipped when the Windows archiver is
+  available. At most three reports are kept. **The report stays on your PC.**
+  You decide whether to attach it to a GitHub issue; **Open new issue** only
+  opens your browser with a prefilled issue template that contains the short
+  system summary from `report.txt`. You can open and edit the report before
+  posting. Once posted, it is public under GitHub's policies.
 
 Nothing is written outside your user profile and nothing is uploaded.
 
@@ -41,16 +66,23 @@ Nothing is written outside your user profile and nothing is uploaded.
 
 MediaFlyouts makes exactly one kind of network request, and only if you let it:
 
-- **Update check** — when "check for updates" is enabled (or triggered manually
-  from the dashboard), the app sends an HTTPS `GET` to
+- **Update check and download** — when "check for updates" is enabled (or
+  triggered manually from the dashboard), the app sends an HTTPS `GET` to
   `https://api.github.com/repos/scleaverzer0ne/MediaFlyouts-Releases/releases/latest`
-  to compare version numbers. The request carries the user agent
-  `MediaFlyouts` and the standard connection information any web request
-  exposes (your IP address). It is handled by GitHub under the
+  to compare version numbers. If you installed with the setup program and then
+  choose **Download & install**, the app downloads the installer file listed in
+  that release from `github.com` over HTTPS, verifies its checksum, and starts
+  it when you click **Install**. Store installs are updated by the Microsoft
+  Store and the app only offers to open it; portable copies are pointed to the
+  release page. To tell these apart the app reads its own package identity and
+  the installer's uninstall registry entry; neither is sent anywhere.
+  These requests carry the user agent `MediaFlyouts` and the standard
+  connection information any web request exposes (your IP address). They are
+  handled by GitHub under the
   [GitHub Privacy Statement](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement).
-  MediaFlyouts sends no identifiers, settings or usage data with it.
+  MediaFlyouts sends no identifiers, settings or usage data with them.
 
-Links in the tray menu or dashboard (Repository, Report a Bug, release page)
+Links in the tray menu or dashboard (Repository, Open new issue, release page)
 open in your default browser; those sites have their own policies.
 
 Album art is obtained from the media player through Windows, not downloaded by
@@ -58,14 +90,20 @@ MediaFlyouts.
 
 ## 4. Data the developer receives
 
-None. There is no account, sign-in, crash reporter, telemetry, analytics or
-advertising SDK in the app. The developer cannot see who installs or uses
-MediaFlyouts.
+None automatically. There is no account, sign-in, crash reporter, telemetry,
+analytics or advertising SDK in the app. The developer cannot see who installs
+or uses MediaFlyouts. The only way information reaches the developer is when
+you choose to post it yourself, for example by attaching an error report (§2)
+to a GitHub issue.
 
 If you install from the **Microsoft Store**, Microsoft may collect install and
 usage statistics under the
 [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement);
-the developer only sees aggregated, anonymous Store statistics.
+the developer only sees aggregated, anonymous Store statistics. Your purchase
+is processed entirely by Microsoft: the developer never receives your name,
+email address or payment details, only anonymous sales totals. The Store
+licence is checked by Windows when the app is launched, not by the app itself,
+and MediaFlyouts never contacts any server to verify it.
 
 If you open an issue on GitHub, anything you post there is public and governed
 by GitHub's policies.

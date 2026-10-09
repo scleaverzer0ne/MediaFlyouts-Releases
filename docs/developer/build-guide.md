@@ -32,19 +32,31 @@ flagged as out of date against the plain release. Override the number with
 `-DMEDIAFLYOUTS_BUILD_NUMBER=<n>` on the CMake command line, or
 `.\mediaflyouts.ps1 build -BuildNumber <n>`.
 
-### Optional file logging
+### File logging
 
-File logging is enabled by default for local builds. Disable it when needed:
+File logging is on by default. The compile-time level follows the build type:
+`DEBUG` for Debug builds, `INFO` for Release (so `TRC_DEBUG` lines compile
+out of shipped binaries). Override or disable it when needed:
 
 ```powershell
 .\mediaflyouts.ps1 build -NoLogging
 # or with CMake directly
 cmake --preset msvc-release -D "MEDIAFLYOUTS_ENABLE_LOGGING=OFF"
+cmake --preset msvc-release -D "MEDIAFLYOUTS_LOG_LEVEL=DEBUG"
 ```
 
-Logs are written under `%LOCALAPPDATA%\MediaFlyouts\logs\`, with rotating
-5 MB files and up to three retained files. The logger also writes to the MSVC
-debugger output when available. Release CI builds disable file logging.
+Logs are written under `%LOCALAPPDATA%\MediaFlyouts\MediaFlyouts\logs\`, with
+rotating 2 MB files and up to three retained files (`mf::kLogFileMaxBytes`,
+`mf::kLogFilesKept`). Identical lines repeated within 5 s collapse into one
+"Skipped N duplicates" line. Warnings flush at once; other levels every 2 s.
+Qt and QML messages (`qWarning`, `console.warn`, binding loops) are routed
+into the same file with a `[qt]` prefix. The logger also writes to the MSVC
+debugger output when available.
+
+`ErrorReporter` (About page → **Create error report**) copies these logs plus
+`settings.ini` and a `report.txt` system summary into
+`%LOCALAPPDATA%\MediaFlyouts\MediaFlyouts\reports\`, zips it with the built-in
+`tar.exe`, and keeps the three newest reports.
 
 ## Release artifacts
 

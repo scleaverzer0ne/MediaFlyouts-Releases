@@ -69,7 +69,7 @@ result to the available screen.
 ## Context properties (from `main.cpp`)
 
 `nowPlaying`, `settings`, `theme`, `placement`, `tray`, `updateChecker`,
-`instance`, `capabilities`, `monitors`, and (on Windows) `volumeController`,
+`errorReporter`, `instance`, `capabilities`, `monitors`, and (on Windows) `volumeController`,
 `volumeMixer`, `audioCapture`, `taskbar`, `fullscreen`, `lockKeys`,
 `windowEffects`. QML reads these directly, e.g. `nowPlaying.title`,
 `settings.visualizerStyle`, `theme.accent`, `audioCapture.bands`.
